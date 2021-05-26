@@ -17,6 +17,12 @@
 typedef enum { FRONT, BACK, UP, DOWN, RIGHT, LEFT } T_SIDE;
 typedef enum { R, B, G, W, Y, O, LG } T_COLOR;
 
+typedef enum { BEG_TO_END=1, END_TO_BEG=-1, } T_STEP;
+typedef enum { BEG=0, END=2 } T_BOUNDS;
+
+#define INIT(step, min, max) (step == BEG_TO_END ? (min) : (max))
+#define COND(x, step, min, max) (step == BEG_TO_END ? (x <= max) : (x >= min))
+
 typedef struct _cellule {
   T_COLOR couleur;
 } cellule;
